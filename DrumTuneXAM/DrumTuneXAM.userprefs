@@ -1,0 +1,28 @@
+﻿<Properties StartupItem="DrumTuneXAM\DrumTuneXAM.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="DrumTuneXAM\MainActivity.cs">
+    <Files>
+      <File FileName="DrumTuneXAM\MainActivity.cs" Line="169" Column="14" />
+      <File FileName="SoundLibrary\SoundAnalysis\Streams\BlockPickStream.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\imoiseev\Documents\Projects\DrumTuneXAM\SoundLibrary\SoundAnalysis\Streams\WindowedQueueStream.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\imoiseev\Documents\Projects\DrumTuneXAM\SoundLibrary\SoundAnalysis\SpectralAnalyzer.cs" Line="1" Column="1" />
+      <File FileName="SoundLibrary\SoundAnalysis\BandManager.cs" Line="1" Column="1" />
+      <File FileName="c:\Users\imoiseev\Documents\Projects\DrumTuneXAM\SoundLibrary\SoundAnalysis\Streams\StraightQueueStream.cs" Line="1" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="c:\Users\imoiseev\Documents\Projects\DrumTuneXAM\SoundLibrary\SoundAnalysis\SpectralAnalyzer.cs" line="124" offsetX="419" offsetY="2583" expression="chart" liveUpdate="False" />
+    <Watch file="DrumTuneXAM\MainActivity.cs" line="91" offsetX="626" offsetY="1890" expression="amp" liveUpdate="False" />
+    <Watch file="c:\Users\imoiseev\Documents\Projects\DrumTuneXAM\SoundLibrary\SoundAnalysis\SpectralAnalyzer.cs" line="120" offsetX="761" offsetY="2499" expression="bands" liveUpdate="False" />
+    <Watch file="c:\Users\imoiseev\Documents\Projects\DrumTuneXAM\SoundLibrary\SoundAnalysis\SpectralAnalyzer.cs" line="120" offsetX="761" offsetY="2499" expression="chart" liveUpdate="False" />
+    <Watch file="SoundLibrary\SoundAnalysis\Streams\StraightQueueStream.cs" line="50" offsetX="464" offsetY="1029" expression="_buffers" liveUpdate="False" />
+    <Watch file="SoundLibrary\SoundAnalysis\Streams\StraightQueueStream.cs" line="50" offsetX="464" offsetY="1029" expression="_buffers" liveUpdate="False" />
+    <Watch file="SoundLibrary\SoundAnalysis\Streams\StraightQueueStream.cs" line="56" offsetX="687" offsetY="1248" expression="target" liveUpdate="False" />
+    <Watch file="c:\Users\imoiseev\Documents\Projects\DrumTuneXAM\SoundLibrary\SoundAnalysis\Streams\WindowedQueueStream.cs" line="52" offsetX="518" offsetY="1071" expression="_buffers" liveUpdate="False" />
+    <Watch file="DrumTuneXAM\MainActivity.cs" line="118" offsetX="500" offsetY="2457" expression="_block" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
+  <MonoDevelop.Ide.ItemProperties.DrumTuneXAM AndroidDesignerPreferredDevice="Nexus 4" AndroidDeviceId-Debug="emulator-5554" />
+</Properties>

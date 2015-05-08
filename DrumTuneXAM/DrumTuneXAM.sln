@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrumTuneXAM", "DrumTuneXAM\DrumTuneXAM.csproj", "{D53DFFC8-4F91-433C-92AA-790D9996F514}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoundLibrary", "SoundLibrary\SoundLibrary.csproj", "{7A550CA7-D5F4-420A-93AF-8C9D7B5EE284}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7A550CA7-D5F4-420A-93AF-8C9D7B5EE284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A550CA7-D5F4-420A-93AF-8C9D7B5EE284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A550CA7-D5F4-420A-93AF-8C9D7B5EE284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A550CA7-D5F4-420A-93AF-8C9D7B5EE284}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D53DFFC8-4F91-433C-92AA-790D9996F514}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D53DFFC8-4F91-433C-92AA-790D9996F514}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D53DFFC8-4F91-433C-92AA-790D9996F514}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D53DFFC8-4F91-433C-92AA-790D9996F514}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
