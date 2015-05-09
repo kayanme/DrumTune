@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -40,23 +40,18 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Mono.Android" />
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\packages\MathNet.Numerics.3.6.0\lib\portable-net45+netcore45+MonoAndroid1+MonoTouch1\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.cs" />
-    <Compile Include="Iridium\Properties\Resources.Designer.cs">
-      <DependentUpon>..\..\..\..\MathNet.Iridium-2008.8.16.470\Sources\Library\Properties\Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Iridium\Statistics\Accumulator.cs" />
-    <Compile Include="Iridium\Transformations\InternalFFT.cs" />
-    <Compile Include="Iridium\Transformations\RealFourierTransformation.cs" />
-    <Compile Include="Iridium\Transformations\TransformationConvention.cs" />
     <Compile Include="SoundAnalysis\AnalyzeUtils.cs" />
+    <Compile Include="SoundAnalysis\BlockAnalyzer.cs" />
+    <Compile Include="SoundAnalysis\BlockInfo.cs" />
     <Compile Include="SoundAnalysis\FrequencyChart.cs" />
     <Compile Include="SoundAnalysis\FrequencyPair.cs" />
-    <Compile Include="Iridium\SpecialFunctions.cs" />
-    <Compile Include="Iridium\Constants.cs" />
-    <Compile Include="Iridium\Trigonometry.cs" />
-    <Compile Include="Iridium\Number.cs" />
     <Compile Include="SoundAnalysis\Streams\IQueueStream.cs" />
     <Compile Include="SoundAnalysis\Streams\StraightQueueStream.cs" />
     <Compile Include="SoundAnalysis\Streams\WindowedQueueStream.cs" />
@@ -66,16 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\Strings.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
-  <ItemGroup>
-    <EmbeddedResource Include="Iridium\Properties\Resources.resx">
-      <SubType>Designer</SubType>
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
 </Project>

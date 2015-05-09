@@ -51,8 +51,9 @@ namespace FuorieTest
 
         public static IEnumerable<T[]> ClusterBy<T>(this IEnumerable<T> source, Func<T, double> clusteringKey, double thresh)
         {
+			
             var buff = new List<T>();
-            var acc = new Accumulator();
+			var acc = new List<double>();
             foreach (var t in source.OrderBy(clusteringKey))
             {
                 var k = clusteringKey(t);
@@ -63,7 +64,7 @@ namespace FuorieTest
                 }
                 else
                 {
-                    if (Math.Abs((acc.Mean - k) / acc.Mean) > thresh)
+					if (Math.Abs((acc.Mean() - k) / acc.Mean()) > thresh)
                     {
                         yield return buff.ToArray();
                         buff.Clear();
@@ -85,7 +86,7 @@ namespace FuorieTest
         public static List<List<T>> ClusterGroup<T>(this IEnumerable<IEnumerable<T>> columns, Func<T, double> keySelector, double threshold)
         {
             var rows = new List<List<T>>();
-            var accs = new List<Accumulator>();
+            var accs = new List<List<double>>();
             foreach (var column in columns)
             {
                 if (!rows.Any())
@@ -95,7 +96,7 @@ namespace FuorieTest
                         var row = new List<T>();
                         row.Add(r);
                         rows.Add(row);
-                        var acc = new Accumulator();
+						var acc = new List<double>();
                         acc.Add(keySelector(r));
                         accs.Add(acc);
                     }
@@ -109,7 +110,7 @@ namespace FuorieTest
                             var acc = accs[exRowNum];
                             var row = rows[exRowNum];
                             var key = keySelector(r);
-                            if (Math.Abs((acc.Mean - key) / acc.Mean) < threshold)
+							if (Math.Abs((acc.Mean() - key) / acc.Mean()) < threshold)
                             {
                                 row.Add(r);
                                 acc.Add(key);
@@ -120,7 +121,7 @@ namespace FuorieTest
                                 row = new List<T>();
                                 row.Add(r);
                                 rows.Add(row);
-                                acc = new Accumulator();
+								acc = new List<double>();
                                 acc.Add(keySelector(r));
                                 accs.Add(acc);
                             }

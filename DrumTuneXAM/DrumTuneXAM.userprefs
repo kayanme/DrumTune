@@ -1,13 +1,15 @@
 ﻿<Properties StartupItem="DrumTuneXAM\DrumTuneXAM.csproj">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.SelectDevice" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.192.168.4.14:5555" />
   <MonoDevelop.Ide.Workbench ActiveDocument="DrumTuneXAM\MainActivity.cs">
     <Files>
-      <File FileName="DrumTuneXAM\MainActivity.cs" Line="169" Column="14" />
+      <File FileName="DrumTuneXAM\MainActivity.cs" Line="50" Column="39" />
       <File FileName="SoundLibrary\SoundAnalysis\Streams\BlockPickStream.cs" Line="1" Column="1" />
       <File FileName="c:\Users\imoiseev\Documents\Projects\DrumTuneXAM\SoundLibrary\SoundAnalysis\Streams\WindowedQueueStream.cs" Line="1" Column="1" />
       <File FileName="c:\Users\imoiseev\Documents\Projects\DrumTuneXAM\SoundLibrary\SoundAnalysis\SpectralAnalyzer.cs" Line="1" Column="1" />
       <File FileName="SoundLibrary\SoundAnalysis\BandManager.cs" Line="1" Column="1" />
       <File FileName="c:\Users\imoiseev\Documents\Projects\DrumTuneXAM\SoundLibrary\SoundAnalysis\Streams\StraightQueueStream.cs" Line="1" Column="1" />
+      <File FileName="SoundLibrary\SoundAnalysis\SpectralAnalyzer.cs" Line="1" Column="1" />
+      <File FileName="SoundLibrary\SoundAnalysis\AnalyzeUtils.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -24,5 +26,5 @@
     <Watch file="c:\Users\imoiseev\Documents\Projects\DrumTuneXAM\SoundLibrary\SoundAnalysis\Streams\WindowedQueueStream.cs" line="52" offsetX="518" offsetY="1071" expression="_buffers" liveUpdate="False" />
     <Watch file="DrumTuneXAM\MainActivity.cs" line="118" offsetX="500" offsetY="2457" expression="_block" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
-  <MonoDevelop.Ide.ItemProperties.DrumTuneXAM AndroidDesignerPreferredDevice="Nexus 4" AndroidDeviceId-Debug="emulator-5554" />
+  <MonoDevelop.Ide.ItemProperties.DrumTuneXAM AndroidDeviceId-Debug="192.168.4.14:5555" />
 </Properties>

@@ -83,6 +83,25 @@ namespace SoundAnalysis
 				.First();
 		}
 
+        public string StringForBand(Bands bands, FrequencyChart freq, int noteCount = 1)
+        {
+            if (freq.Any())
+            {
+
+                var nt = "";
+                for (int i = 0; i < noteCount; i++)
+                {
+                    var maxFrequency = Math.Round(freq.OrderByDescending(k => k.Level).Skip(i).First().Frequency, 1);
+                    nt += bands.NoteByFreq(maxFrequency) + " (" + maxFrequency + ")    ";
+                }
+                return nt + "\n";
+            }
+            else
+            {
+                return "   -(-)  ";
+            }
+        }
+
         public Bands BoundGenerator(double maxFreq, int semitonesInBand)
         {
 

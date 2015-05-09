@@ -1,6 +1,6 @@
 ﻿using MathNet.Numerics;
 using MathNet.Numerics.Statistics;
-using MathNet.Numerics.Transformations;
+using MathNet.Numerics.IntegralTransforms;
 using SoundAnalysis;
 using System;
 using System.Collections.Generic;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
+using System.Numerics;
 
 namespace FuorieTest
 {
@@ -15,36 +16,57 @@ namespace FuorieTest
     public enum WindowType{Hann,Square}
     public class SpectralAnalyzer
     {
-        private RealFourierTransformation trans;
+         static SpectralAnalyzer()
+        {
+            Control.UseMultiThreading();
+        }
+		/// <summary>
+		/// Generate the frequencies corresponding to each index in frequency space.
+		/// The frequency space has a resolution of sampleRate/N.
+		/// Index 0 corresponds to the DC part, the following indices correspond to
+		/// the positive frequencies up to the Nyquist frequency (sampleRate/2),
+		/// followed by the negative frequencies wrapped around.
+		/// </summary>
+		/// <param name="length">Number of samples.</param>
+		/// <param name="sampleRate">The sampling rate of the time-space data.</param>
+		private static double[] FrequencyScale(int length, double sampleRate)
+		{
+			double[] scale = new double[length];
+			double f = 0, step = sampleRate / length;
+			int secondHalf = (length >> 1) + 1;
+			for (int i = 0; i < secondHalf; i++)
+			{
+				scale[i] = f;
+				f += step;
+			}
+
+			f = -step * (secondHalf - 2);
+			for (int i = secondHalf; i < length; i++)
+			{
+				scale[i] = f;
+				f += step;
+			}
+
+			return scale;
+		}
+
         private double[] frqs;
         private double[] window;
-        public SpectralAnalyzer(int windowSize, int discretization,WindowType winType)
+        public SpectralAnalyzer(int windowSize, int discretization)
         {
-            trans = new RealFourierTransformation(TransformationConvention.AsymmetricScaling );
-            frqs = trans.GenerateFrequencyScale(discretization, windowSize);
-            if (winType == WindowType.Hann)
-                window = Hanning(windowSize);
-            else window = Square(windowSize);
+           
+			frqs = FrequencyScale( windowSize,discretization);           
+            window = Window.Blackman(windowSize);
+            
         }
 
-        private static double[] Hanning(int samples)
-        {
-            return Enumerable.Range(0, samples)
-                .Select(k => 0.5 * (1 - Math.Cos(2 * Math.PI * k / (samples - 1))))
-                .ToArray();
-        }
+      
+     
 
-        private static double[] Square(int samples)
-        {
-            return Enumerable.Range(0, samples)
-                .Select(k => 1.0)
-                .ToArray();
-        }
-
-        public static double[] SoundFromBytes(byte[] smp,bool stereo)
+        public static Complex[] SoundFromBytes(byte[] smp,bool stereo)
         {
             var shorts = smp.BTS(stereo).ToArray();
-            var wavesample = shorts.Select(k => (double)k).ToArray();
+            var wavesample = shorts.Select(k => new Complex(k,0)).ToArray();
             return wavesample;
         }
 
@@ -70,13 +92,13 @@ namespace FuorieTest
 			return e;
 		}
 
-		public double[] ApplyWindow(double[] sound)
+        public Complex[] ApplyWindow(Complex[] sound)
 		{
 			if (sound.Count() != window.Count())
 				throw new Exception ();
-			var e = new double[sound.Length];
+            var e = new Complex[sound.Length];
 			for (int i = 0; i < sound.Length; i++) {
-				sound[i] *= window [i];
+				e[i] = sound[i] * window [i];
 
 			}
 			return e;
@@ -151,19 +173,19 @@ namespace FuorieTest
 			}
 
        
-			C1:         return  new FrequencyChart(t);
+C1:         return  new FrequencyChart(t);
         }
 
 
 
 
-		public double[] ConvertFromSamples(short[] samples)
+		public Complex[] ConvertFromSamples(short[] samples)
 		{
-			var t = new double[window.Length];
+            var t = new Complex[window.Length];
 		
 			for (int i = 0; i < t.Length; i++) {
 				if (samples.Length > i)
-					t [i] = (double)samples [i];
+					t [i] = new Complex(samples [i],0);
 				else
 					t [i] = 0;
 			}
@@ -171,13 +193,13 @@ namespace FuorieTest
 			return t;
 		}
 
-		public double[] ConvertFromSamplesWithWindow(short[] samples)
+        public Complex[] ConvertFromSamplesWithWindow(short[] samples)
 		{
-			var t = new double[window.Length];
+            var t = new Complex[window.Length];
 
 			for (int i = 0; i < t.Length; i++) {
 				if (samples.Length > i)
-					t [i] = (double)samples [i] * window [i];
+					t [i] = new Complex(samples [i] * window [i],0);
 				else
 					t [i] = 0;
 				
@@ -185,28 +207,20 @@ namespace FuorieTest
 			return t;
 		}
 
-		public FrequencyChart AnalyzeSound(double[] sound,int offset)
+        public FrequencyChart AnalyzeSound(Complex[] sound, int offset)
 		{
 
 
-			var sample = new double[window.Length];
+            var sample = new Complex[window.Length];
 			Array.Copy(sound,offset,sample,0,window.Length);
 
-		  
-
-			double[] real;
-			double[] img;
-                  
-			trans.TransformForward (sample, out real, out img);
+            Fourier.Radix2Forward(sample, FourierOptions.Default);
 	    	var chart = new FrequencyChart (
-				real.Zip (img, (r, i) => Math.Sqrt (r * r + i * i) * 2 / (sample.Length))		
+                sample.Select(k => k.Magnitude * 2 / (sample.Length))		
                                .Zip (frqs, (a, f) => new FrequencyPair (f, a))
                                .Where (k => k.Frequency > 0)
                                .ToArray ());
-
-
-		
-						
+								
 			return chart;
                           
 		}
