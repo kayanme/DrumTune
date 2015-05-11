@@ -14,7 +14,7 @@ using Android.Media;
 
 namespace DrumTuneXAM
 {
-    internal class AudioRecordStream:IQueueStream<short>
+    public sealed class AudioRecordStream : IQueueStream<short>
     {
         private AudioRecord _r;
         public AudioRecordStream(AudioRecord r )

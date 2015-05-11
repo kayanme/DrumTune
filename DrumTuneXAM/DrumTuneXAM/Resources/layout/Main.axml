@@ -8,17 +8,11 @@
         android:minHeight="25px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/viewFlipper1">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/frView"
-            android:editable="false"
-            android:textIsSelectable="false" />
-        <DrumTuneXAM.NoteView xmlns:p2="http://schemas.android.com/tools"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/ampView"
-            p2:visibility="visible" />
-    </ViewFlipper>
+        android:id="@+id/viewFlipper1" />
+    <FrameLayout
+        android:minWidth="25px"
+        android:minHeight="25px"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainFrame" />
 </LinearLayout>

@@ -26,6 +26,9 @@ namespace DrumTuneXAM
 		
 		public static void UpdateIdValues()
 		{
+			global::Fragments.Resource.String.ApplicationName = global::DrumTuneXAM.Resource.String.ApplicationName;
+			global::Fragments.Resource.String.Hello = global::DrumTuneXAM.Resource.String.Hello;
+			global::Fragments.Resource.String.library_name = global::DrumTuneXAM.Resource.String.library_name;
 			global::SoundLibrary.Resource.String.library_name = global::DrumTuneXAM.Resource.String.library_name;
 		}
 		
@@ -61,11 +64,8 @@ namespace DrumTuneXAM
 		public partial class Id
 		{
 			
-			// aapt resource value: 0x7f050002
-			public const int ampView = 2131034114;
-			
 			// aapt resource value: 0x7f050001
-			public const int frView = 2131034113;
+			public const int mainFrame = 2131034113;
 			
 			// aapt resource value: 0x7f050000
 			public const int viewFlipper1 = 2131034112;
@@ -100,10 +100,16 @@ namespace DrumTuneXAM
 		{
 			
 			// aapt resource value: 0x7f040002
-			public const int app_name = 2130968578;
+			public const int ApplicationName = 2130968578;
 			
 			// aapt resource value: 0x7f040001
-			public const int hello = 2130968577;
+			public const int Hello = 2130968577;
+			
+			// aapt resource value: 0x7f040004
+			public const int app_name = 2130968580;
+			
+			// aapt resource value: 0x7f040003
+			public const int hello = 2130968579;
 			
 			// aapt resource value: 0x7f040000
 			public const int library_name = 2130968576;

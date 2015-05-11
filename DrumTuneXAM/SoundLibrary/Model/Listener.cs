@@ -17,13 +17,12 @@ using System.Threading.Tasks;
 
 namespace DrumTuneXAM
 {
-    internal class Listener:IDisposable
+    public sealed class Listener : IDisposable
     {
         public BlockPickStream BlockStream { get; private set; }
        
         private AudioRecord _soundStream;
-        private bool _work;
-        private Task _listener;
+        public bool Working { get; private set; }
         public int Rate { get; private set; }
         public Listener()
         {
@@ -48,16 +47,15 @@ namespace DrumTuneXAM
       
         public void Start()
         {
-            
+            Working = true;
             _soundStream.StartRecording();
-      
+          
         }
 
         public void Stop()
         {
-            _soundStream.Stop();
-          
-     
+            Working = false; 
+            _soundStream.Stop();               
         }
 
         public void Dispose()

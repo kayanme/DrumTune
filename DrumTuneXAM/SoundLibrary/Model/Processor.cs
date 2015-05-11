@@ -15,12 +15,13 @@ using System.Threading.Tasks;
 
 namespace DrumTuneXAM
 {
-    internal class Processor:IDisposable
+    public sealed class Processor : IDisposable
     {
         private int _rate;
-        private BlockPickStream _block;
+        private readonly BlockPickStream _block;
         private bool _work;
         private Task _process;
+        public bool Working { get { return _work; }}
         public Processor(int rate, BlockPickStream blocks)
         {
             _rate = rate;

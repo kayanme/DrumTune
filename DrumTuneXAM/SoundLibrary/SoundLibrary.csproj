@@ -46,6 +46,9 @@
     <Reference Include="System.Numerics" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\AudioRecordStream.cs" />
+    <Compile Include="Model\Listener.cs" />
+    <Compile Include="Model\Processor.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="SoundAnalysis\AnalyzeUtils.cs" />
     <Compile Include="SoundAnalysis\BlockAnalyzer.cs" />

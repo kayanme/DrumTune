@@ -2,16 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/frView"
-        android:editable="false"
-        android:textIsSelectable="false" />
-    <DrumTuneXAM.NoteView xmlns:p2="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/ampView"
-        p2:visibility="visible" />
+    android:layout_height="fill_parent"
+    android:minWidth="25px"
+    android:minHeight="25px">
+<!-- Widget Inserted Conflict | id:__root__ | @+id/frameLayout1 -->
 </LinearLayout>
